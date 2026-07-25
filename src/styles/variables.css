@@ -1,9 +1,9 @@
 :root {
   /* Primary & Brand Colors */
-  --color-primary: #13265C;
-  --color-primary-hover: #1B367D;
-  --color-primary-light: rgba(19, 38, 92, 0.12);
-  --color-primary-glow: rgba(19, 38, 92, 0.35);
+  --color-primary: #059669;
+  --color-primary-hover: #047857;
+  --color-primary-light: rgba(5, 150, 105, 0.15);
+  --color-primary-glow: rgba(5, 150, 105, 0.35);
 
   /* Neutrals & Backgrounds */
   --color-bg-dark: #121212;

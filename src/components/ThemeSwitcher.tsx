@@ -7,7 +7,7 @@ import '../styles/components/ThemeSwitcher.css';
 export const ThemeSwitcher: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeThemeId, setActiveThemeId] = useState<string>(() => {
-    return localStorage.getItem('user_portfolio_theme') || 'trust';
+    return localStorage.getItem('user_portfolio_theme') || 'harmony';
   });
 
   const applyTheme = (theme: ThemeConfig) => {
