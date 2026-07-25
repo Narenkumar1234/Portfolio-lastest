@@ -1,0 +1,40 @@
+:root {
+  /* Primary & Brand Colors */
+  --color-primary: #13265C;
+  --color-primary-hover: #1B367D;
+  --color-primary-light: rgba(19, 38, 92, 0.12);
+  --color-primary-glow: rgba(19, 38, 92, 0.35);
+
+  /* Neutrals & Backgrounds */
+  --color-bg-dark: #121212;
+  --color-surface-dark: #1E1E1E;
+  --color-surface-dark-card: #252525;
+  --color-bg-light: #F8F9FA;
+  --color-card-light: #FFFFFF;
+  
+  /* Text Colors */
+  --color-text-main: #1D1D1F;
+  --color-text-muted: #6E6E73;
+  --color-text-light: #FFFFFF;
+  --color-text-light-muted: #A1A1A6;
+
+  /* Typography */
+  --font-heading: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Borders & Shadows */
+  --border-radius-xs: 8px;
+  --border-radius-sm: 14px;
+  --border-radius-md: 20px;
+  --border-radius-lg: 32px;
+  --border-radius-pill: 9999px;
+
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 20px 40px rgba(19, 38, 92, 0.2);
+  --shadow-dark-card: 0 16px 40px rgba(0, 0, 0, 0.4);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

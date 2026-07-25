@@ -1,0 +1,226 @@
+/* Hero Section Layout */
+.hero-section {
+  position: relative;
+  padding-top: 120px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 25%, rgba(19, 38, 92, 0.06) 0%, transparent 65%);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Floating Hello Badge & Swooshes */
+.hello-badge-wrapper {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.hello-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 20px;
+  border-radius: var(--border-radius-pill);
+  border: 1px solid rgba(30, 30, 30, 0.2);
+  background: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.badge-swoosh-svg {
+  position: absolute;
+  top: -10px;
+  right: -24px;
+}
+
+/* Hero Headline */
+.hero-title {
+  font-size: 4.4rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  line-height: 1.08;
+}
+
+.hero-title .highlight-name {
+  color: var(--color-primary);
+}
+
+/* Center Visual Stage & Floating Elements */
+.hero-visual-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1020px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Side Info Text (Clean text without card box background) */
+.hero-side-info {
+  position: absolute;
+  z-index: 10;
+  max-width: 250px;
+  text-align: left;
+}
+
+.hero-side-info.left-info {
+  top: 32%;
+  left: 2%;
+}
+
+.hero-side-info.right-info {
+  top: 32%;
+  right: 2%;
+}
+
+.quote-mark {
+  font-size: 2.8rem;
+  color: var(--color-text-main);
+  line-height: 0.7;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.quote-text {
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.star-rating-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.exp-years {
+  font-size: 2.8rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--color-text-main);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.exp-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Center Character & Glassmorphic Capsule CTAs */
+.hero-character-center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-cta-capsule {
+  position: absolute;
+  bottom: 24px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: none;
+  box-shadow: 0 4px 14px var(--color-primary-light);
+}
+
+.btn-hero-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-hero-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background: transparent;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn-hero-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 2.5rem;
+    padding: 0 12px;
+  }
+
+  .hero-visual-stage {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-side-info.left-info,
+  .hero-side-info.right-info {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 16px auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 16px;
+    text-align: center;
+  }
+
+  .hero-side-info .star-rating-row {
+    justify-content: center;
+  }
+
+  .hero-cta-capsule {
+    position: relative;
+    bottom: auto;
+    margin-top: 16px;
+  }
+}

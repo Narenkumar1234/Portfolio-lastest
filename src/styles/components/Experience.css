@@ -1,0 +1,142 @@
+/* Work Experience Section */
+.experience-section {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+}
+
+.experience-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: -1px;
+}
+
+/* Timeline Layout Container */
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Vertical Dashed Central Line */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  border-left: 2px dashed #E2E2E6;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  margin-bottom: 60px;
+  z-index: 2;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Left Column - Company Info */
+.timeline-company-col {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.company-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 4px;
+}
+
+.company-period {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Center Node Indicator */
+.timeline-node-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline-node {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 3px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px rgba(19, 38, 92, 0.15);
+  transition: all var(--transition-fast);
+}
+
+.timeline-node-inner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.timeline-node.dark {
+  border-color: #1E1E1E;
+}
+
+.timeline-node.dark .timeline-node-inner {
+  background: #1E1E1E;
+}
+
+/* Right Column - Role & Description */
+.timeline-role-col {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.role-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+}
+
+.role-description {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 24px;
+  }
+  .timeline-item {
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .timeline-company-col {
+    grid-column: 2;
+    text-align: left;
+    padding-right: 0;
+  }
+  .timeline-node-col {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  .timeline-role-col {
+    grid-column: 2;
+    padding-left: 0;
+  }
+}
