@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Globe, Share2, Send, MessageSquare } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { SOCIAL_LINKS_DATA } from './SocialIcons';
 import '../styles/components/Footer.css';
 
 export const Footer: React.FC = () => {
@@ -55,18 +56,19 @@ export const Footer: React.FC = () => {
           <p>© {new Date().getFullYear()} Narenkumar RM. All Rights Reserved.</p>
 
           <div className="footer-social-links">
-            <a href="mailto:narenkumar2001@gmail.com" className="social-icon-btn" aria-label="Email">
-              <Globe size={18} />
-            </a>
-            <a href="https://github.com/Narenkumar1234/" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="GitHub">
-              <Share2 size={18} />
-            </a>
-            <a href="https://www.linkedin.com/in/narenkumar01/" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="LinkedIn">
-              <Send size={18} />
-            </a>
-            <a href="https://leetcode.com/NightGamer01/" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="LeetCode">
-              <MessageSquare size={18} />
-            </a>
+            {SOCIAL_LINKS_DATA.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noreferrer"
+                className="social-icon-btn"
+                aria-label={social.ariaLabel}
+                title={social.name}
+              >
+                {social.icon}
+              </a>
+            ))}
           </div>
         </div>
       </div>

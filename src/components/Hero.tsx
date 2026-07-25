@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Star, ArrowUpRight } from 'lucide-react';
 import { HERO_DATA } from '../data/portfolioData';
 import { DesignerAvatarPlaceholder } from './GraphicPlaceholders';
+import { SOCIAL_LINKS_DATA } from './SocialIcons';
 import '../styles/components/Hero.css';
 
 export const Hero: React.FC = () => {
@@ -40,7 +41,7 @@ export const Hero: React.FC = () => {
 
           {/* Visual Stage with Arch Graphic & Side Info */}
           <div className="hero-visual-stage">
-            {/* Left Quote Info (Clean text without card box) */}
+            {/* Left Quote Info */}
             <motion.div 
               className="hero-side-info left-info"
               initial={{ opacity: 0, x: -40 }}
@@ -71,7 +72,7 @@ export const Hero: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Right Rating Info (Clean text without card box) */}
+            {/* Right Rating Info */}
             <motion.div 
               className="hero-side-info right-info"
               initial={{ opacity: 0, x: 40 }}
@@ -85,6 +86,23 @@ export const Hero: React.FC = () => {
               </div>
               <div className="exp-years">{HERO_DATA.experienceYears}</div>
               <div className="exp-subtitle">{HERO_DATA.experienceSubtitle}</div>
+
+              {/* Hero Social Links Row */}
+              <div className="hero-social-row">
+                {SOCIAL_LINKS_DATA.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hero-social-btn"
+                    aria-label={social.ariaLabel}
+                    title={social.name}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
