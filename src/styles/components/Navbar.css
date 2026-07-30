@@ -47,7 +47,7 @@
   background-color: var(--color-primary);
   color: #FFFFFF;
   font-weight: 600;
-  box-shadow: 0 4px 16px rgba(253, 111, 0, 0.35);
+  box-shadow: 0 4px 16px var(--color-primary-glow);
 }
 
 /* Brand Center Logo Badge */
@@ -120,9 +120,11 @@
   .nav-capsule {
     display: none;
   }
+
   .mobile-menu-btn {
     display: flex;
   }
+
   .navbar-header {
     justify-content: flex-end;
     top: 14px;

@@ -50,7 +50,7 @@ export const ThemeSwitcher: React.FC = () => {
   return (
     <div className="theme-switcher-container">
       {/* Floating Toggle Button */}
-      <button 
+      <button
         className="theme-toggle-btn"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Select Color Theme"
@@ -61,7 +61,7 @@ export const ThemeSwitcher: React.FC = () => {
       {/* Theme Picker Drawer */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             className="theme-panel"
             initial={{ opacity: 0, y: 15, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -85,8 +85,8 @@ export const ThemeSwitcher: React.FC = () => {
                     setIsOpen(false);
                   }}
                 >
-                  <span 
-                    className="theme-swatch" 
+                  <span
+                    className="theme-swatch"
                     style={{ backgroundColor: t.primary }}
                   />
                   <span className="theme-word">{t.word}</span>
