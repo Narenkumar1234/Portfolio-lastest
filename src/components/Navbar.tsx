@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../data/portfolioData';
 import '../styles/components/Navbar.css';
 
@@ -52,8 +52,17 @@ export const Navbar: React.FC = () => {
               {
                 idx == 3 &&
                 <a href="#home" className="brand-logo">
-                  <span className="brand-icon">
-                    <Sparkles size={14} />
+                  <span className="brand-icon"
+                    style={{
+                      overflow: 'hidden',
+                      display: 'flex', alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                    <img
+                      src="/favicon-monogram.png"
+                      alt="Logo"
+                      style={{ width: '70%', height: '70%', objectFit: 'cover' }}
+                    />
                   </span>
                   @narenkumar.xyz
                 </a>
