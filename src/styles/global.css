@@ -33,6 +33,11 @@ body {
   line-height: 1.6;
 }
 
+section,
+footer {
+  scroll-margin-top: 100px;
+}
+
 /* Typography Headings */
 h1,
 h2,
@@ -116,6 +121,11 @@ h6 {
 @media (max-width: 768px) {
   section {
     padding: 50px 0;
+  }
+
+  section,
+  footer {
+    scroll-margin-top: -50px;
   }
 
   .container {

@@ -5,7 +5,7 @@ import { NAV_LINKS } from '../data/portfolioData';
 import '../styles/components/Navbar.css';
 
 export const Navbar: React.FC = () => {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -40,58 +40,35 @@ export const Navbar: React.FC = () => {
   return (
     <header className="navbar-header">
       {/* Desktop Capsule Header */}
-      <motion.nav
+      <motion.div
         className="nav-capsule"
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ x: 0, y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.6 }}
       >
-        <a
-          href="#home"
-          className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
-        >
-          Home
-        </a>
-        <a
-          href="#why-hire-me"
-          className={`nav-link ${activeSection === 'why-hire-me' ? 'active' : ''}`}
-        >
-          About
-        </a>
-        <a
-          href="#services"
-          className={`nav-link ${activeSection === 'services' ? 'active' : ''}`}
-        >
-          Service
-        </a>
-
-        {/* Brand Center Logo */}
-        <a href="#home" className="brand-logo">
-          <span className="brand-icon">
-            <Sparkles size={14} />
-          </span>
-          @narenkumar.xyz
-        </a>
-
-        <a
-          href="#experience"
-          className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`}
-        >
-          Resume
-        </a>
-        <a
-          href="#portfolio"
-          className={`nav-link ${activeSection === 'portfolio' ? 'active' : ''}`}
-        >
-          Project
-        </a>
-        <a
-          href="#contact"
-          className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
-        >
-          Contact
-        </a>
-      </motion.nav>
+        {NAV_LINKS.map((item, idx) => {
+          return (
+            <>
+              {
+                idx == 3 &&
+                <a href="#home" className="brand-logo">
+                  <span className="brand-icon">
+                    <Sparkles size={14} />
+                  </span>
+                  @narenkumar.xyz
+                </a>
+              }
+              <a
+                key={idx}
+                href={item.href}
+                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+              >
+                {item.label}
+              </a>
+            </>
+          )
+        })}
+      </motion.div>
 
       {/* Mobile Toggle Button */}
       <button

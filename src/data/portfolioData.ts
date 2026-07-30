@@ -34,12 +34,12 @@ export interface StatItem {
 }
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#why-hire-me' },
-  { label: 'Service', href: '#services' },
-  { label: 'Resume', href: '#experience' },
-  { label: 'Project', href: '#portfolio' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '#home', id: "home" },
+  { label: 'Service', href: '#services', id: "services" },
+  { label: 'Resume', href: '#experience', id: "experience" },
+  { label: 'About', href: '#why-hire-me', id: "why-hire-me" },
+  { label: 'Project', href: '#portfolio', id: "portfolio" },
+  { label: 'Contact', href: '#contact', id: "contact" },
 ];
 
 export const HERO_DATA = {
