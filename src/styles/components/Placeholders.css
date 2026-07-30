@@ -114,9 +114,26 @@
   border-bottom: 1.5px dashed #E2E2E6;
 }
 
-.dot-red { width: 8px; height: 8px; border-radius: 50%; background: #FF5F56; }
-.dot-yellow { width: 8px; height: 8px; border-radius: 50%; background: #FFBD2E; }
-.dot-green { width: 8px; height: 8px; border-radius: 50%; background: #27C93F; }
+.dot-red {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FF5F56;
+}
+
+.dot-yellow {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FFBD2E;
+}
+
+.dot-green {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #27C93F;
+}
 
 .preview-grid-layout {
   display: grid;
@@ -178,7 +195,7 @@
   background: #FFFFFF;
   border-radius: 12px;
   padding: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -196,23 +213,24 @@
 }
 
 @media (max-width: 768px) {
+
   .avatar-graphic-container,
   .avatar-graphic-container.hero,
   .avatar-graphic-container.why-hire-me {
     max-width: 100%;
     width: 100%;
-    height: 340px;
+    height: 370px;
   }
 
   .avatar-character-wrapper {
-    height: 340px;
+    height: 370px;
   }
 
   .arch-background,
   .avatar-graphic-container.hero .arch-background {
-    width: 280px;
-    height: 260px;
-    border-radius: 140px 140px 0 0;
+    width: 320px;
+    height: 290px;
+    border-radius: 160px 160px 0 0;
   }
 
   .avatar-graphic-container.why-hire-me .arch-background {

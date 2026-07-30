@@ -188,6 +188,7 @@
   transition: all var(--transition-fast);
   border: none;
   box-shadow: 0 4px 14px var(--color-primary-light);
+  white-space: nowrap;
 }
 
 .btn-hero-primary:hover {
@@ -208,10 +209,28 @@
   transition: all var(--transition-fast);
   border: none;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
 }
 
 .btn-hero-outline:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 480px) {
+  .hero-cta-capsule {
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .btn-hero-primary {
+    padding: 10px 18px;
+    font-size: 0.88rem;
+  }
+
+  .btn-hero-outline {
+    padding: 10px 16px;
+    font-size: 0.88rem;
+  }
 }
 
 @media (max-width: 900px) {
@@ -252,11 +271,5 @@
 
   .hero-side-info .star-rating-row {
     justify-content: center;
-  }
-
-  .hero-cta-capsule {
-    position: relative;
-    bottom: auto;
-    margin-top: 16px;
   }
 }
