@@ -4,7 +4,10 @@ import { Star, ArrowUpRight } from 'lucide-react';
 import { HERO_DATA } from '../data/portfolioData';
 import { DesignerAvatarPlaceholder } from './GraphicPlaceholders';
 import { SOCIAL_LINKS_DATA } from './SocialIcons';
+
+import swoosh from '../assets/swoosh.svg'
 import '../styles/components/Hero.css';
+
 
 export const Hero: React.FC = () => {
   return (
@@ -12,9 +15,9 @@ export const Hero: React.FC = () => {
       <div className="container">
         <div className="hero-content">
           {/* Hello Floating Badge */}
-          <motion.div 
+          <motion.div
             className="hello-badge-wrapper"
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -130 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
@@ -22,14 +25,13 @@ export const Hero: React.FC = () => {
               {HERO_DATA.greetingBadge}
             </div>
             {/* Orange Decorative Swooshes */}
-            <svg className="badge-swoosh-svg" width="32" height="24" viewBox="0 0 32 24" fill="none">
-              <path d="M4 18C10 6 22 2 28 8" stroke="var(--color-primary)" strokeWidth="2.5" strokeLinecap="round"/>
-              <path d="M12 22C18 12 26 10 30 16" stroke="var(--color-primary)" strokeWidth="2.5" strokeLinecap="round"/>
-            </svg>
+            <img src={swoosh} alt="" className="badge-swoosh-svg"
+              width="72"
+              height="34" />
           </motion.div>
 
           {/* Headline */}
-          <motion.h1 
+          <motion.h1
             className="hero-title"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,7 +44,7 @@ export const Hero: React.FC = () => {
           {/* Visual Stage with Arch Graphic & Side Info */}
           <div className="hero-visual-stage">
             {/* Left Quote Info */}
-            <motion.div 
+            <motion.div
               className="hero-side-info left-info"
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -73,7 +75,7 @@ export const Hero: React.FC = () => {
             </motion.div>
 
             {/* Right Rating Info */}
-            <motion.div 
+            <motion.div
               className="hero-side-info right-info"
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
