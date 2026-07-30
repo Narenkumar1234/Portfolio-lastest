@@ -23,7 +23,7 @@ export const Hero: React.FC = () => {
               animate={{
                 opacity: [0, 1, 1, 1, 1, 1, 1, 0],
                 x: [-400, -342, -285, -228, -171, -114, -57, 0],
-                y: [0, -35, 35, -35, 35, -35, 35, 0],
+                y: [0, -35, 35, -35, 35, -35, 35, 0]
               }}
               transition={{
                 duration: 2.5,
@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
               animate={{
                 opacity: [0, 1, 1, 1, 1, 1, 1, 0],
                 x: [400, 342, 285, 228, 171, 114, 57, 0],
-                y: [0, 35, -35, 35, -35, 35, -35, 0],
+                y: [0, 35, -35, 35, -35, 35, -35, 0]
               }}
               transition={{
                 duration: 2.5,
@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, scale: 0 }}
               animate={{
                 opacity: [0, 0, 0, 0, 0, 0, 0, 1],
-                scale: [0, 0, 0, 0, 0, 0, 0.4, 1.3, 1],
+                scale: [0, 0, 0, 0, 0, 0, 0.4, 1.3, 1]
               }}
               transition={{
                 duration: 3,
