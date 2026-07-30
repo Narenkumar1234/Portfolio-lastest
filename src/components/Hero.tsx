@@ -15,20 +15,70 @@ export const Hero: React.FC = () => {
       <div className="container">
         <div className="hero-content">
           {/* Hello Floating Badge */}
-          <motion.div
-            className="hello-badge-wrapper"
-            initial={{ opacity: 0, y: -130 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="hello-badge">
-              {HERO_DATA.greetingBadge}
-            </div>
-            {/* Orange Decorative Swooshes */}
-            <img src={swoosh} alt="" className="badge-swoosh-svg"
-              width="72"
-              height="34" />
-          </motion.div>
+          <div className="hello-badge-wrapper" style={{ position: 'relative', display: 'inline-flex', justifyContent: 'center', alignItems: 'center' }}>
+            {/* Left Word: Hell */}
+            <motion.div
+              className="hello-badge hell-part"
+              initial={{ opacity: 0, x: -400, y: 0 }}
+              animate={{
+                opacity: [0, 1, 1, 1, 1, 1, 1, 0],
+                x: [-400, -342, -285, -228, -171, -114, -57, 0],
+                y: [0, -35, 35, -35, 35, -35, 35, 0],
+              }}
+              transition={{
+                duration: 2.5,
+                ease: "linear",
+                delay: 0.1,
+              }}
+              style={{ position: 'absolute', zIndex: 10, whiteSpace: 'nowrap' }}
+            >
+              Hell
+            </motion.div>
+
+            {/* Right Word: No! */}
+            <motion.div
+              className="hello-badge o-part"
+              initial={{ opacity: 0, x: 400, y: 0 }}
+              animate={{
+                opacity: [0, 1, 1, 1, 1, 1, 1, 0],
+                x: [400, 342, 285, 228, 171, 114, 57, 0],
+                y: [0, 35, -35, 35, -35, 35, -35, 0],
+              }}
+              transition={{
+                duration: 2.5,
+                ease: "linear",
+              }}
+              style={{ position: 'absolute', zIndex: 10, whiteSpace: 'nowrap' }}
+            >
+              No!
+            </motion.div>
+
+            {/* Merged Badge: Hello! (Pop-in upon Collision) */}
+            <motion.div
+              className="hello-badge-inner-wrapper"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{
+                opacity: [0, 0, 0, 0, 0, 0, 0, 1],
+                scale: [0, 0, 0, 0, 0, 0, 0.4, 1.3, 1],
+              }}
+              transition={{
+                duration: 3,
+                delay: 0.3,
+              }}
+              style={{ position: 'relative' }}
+            >
+              <div className="hello-badge">
+                {HERO_DATA.greetingBadge}
+              </div>
+              <img
+                src={swoosh}
+                alt=""
+                className="badge-swoosh-svg"
+                width="100"
+                height="100"
+              />
+            </motion.div>
+          </div>
 
           {/* Headline */}
           <motion.h1
