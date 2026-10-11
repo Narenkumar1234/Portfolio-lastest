@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa6';
 import { SERVICES_DATA } from '../data/portfolioData';
 import { ServiceUIPreview } from './GraphicPlaceholders';
 import '../styles/components/Services.css';
@@ -49,7 +50,7 @@ export const Services: React.FC = () => {
             {SERVICES_DATA.map((service, index) => (
               <motion.div
                 key={service.id}
-                className="service-card"
+                className={`service-card ${service.previewType === 'expense-tracker' ? 'service-card-featured' : ''}`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -58,14 +59,48 @@ export const Services: React.FC = () => {
                 onClick={() => setActiveIndex(index)}
               >
                 <div className="service-card-top">
+                  <div className="service-card-badge-row">
+                    <span className="service-category-tag">{service.category}</span>
+                    {service.badge && (
+                      <span className="service-featured-pill">{service.badge}</span>
+                    )}
+                  </div>
                   <h3 className="service-card-title">{service.title}</h3>
                 </div>
 
-                <ServiceUIPreview type={service.previewType} />
+                <ServiceUIPreview type={service.previewType} service={service} />
 
                 <div className="service-card-bottom">
-                  <div className="action-circle-btn">
-                    <ArrowUpRight size={22} />
+                  <p className="service-card-desc">{service.description}</p>
+                  <div className="service-card-actions">
+                    {service.githubUrl && (
+                      <a
+                        href={service.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="service-github-btn"
+                        title="View GitHub Repository"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <FaGithub size={18} />
+                      </a>
+                    )}
+                    {service.demoUrl ? (
+                      <a
+                        href={service.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="action-circle-btn live-btn"
+                        title="Launch Live Demo"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ArrowUpRight size={22} />
+                      </a>
+                    ) : (
+                      <div className="action-circle-btn">
+                        <ArrowUpRight size={22} />
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>

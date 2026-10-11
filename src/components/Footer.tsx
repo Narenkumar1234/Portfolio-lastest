@@ -4,6 +4,8 @@ import { ArrowUpRight } from 'lucide-react';
 import { SOCIAL_LINKS_DATA } from './SocialIcons';
 import '../styles/components/Footer.css';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -53,7 +55,7 @@ export const Footer: React.FC = () => {
 
         {/* Footer Bottom Row */}
         <div className="footer-bottom-row">
-          <p>© {new Date().getFullYear()} Narenkumar RM. All Rights Reserved.</p>
+          <p>© {CURRENT_YEAR} Narenkumar RM. All Rights Reserved.</p>
 
           <div className="footer-social-links">
             {SOCIAL_LINKS_DATA.map((social) => (

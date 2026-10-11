@@ -60,15 +60,17 @@
   background: var(--color-surface-dark-card);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
-  padding: 28px 24px;
+  padding: 26px 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 340px;
+  min-height: 420px;
+  height: auto;
   transition: all var(--transition-smooth);
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  gap: 16px;
 }
 
 .service-card:hover {
@@ -77,11 +79,54 @@
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(19, 38, 92, 0.4);
 }
 
-.service-card-title {
-  font-size: 1.5rem;
-  color: #FFFFFF;
-  margin-bottom: 16px;
+.service-card.service-card-featured {
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(16, 185, 129, 0.12);
+}
+
+.service-card.service-card-featured:hover {
+  border-color: #10B981;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(16, 185, 129, 0.25);
+}
+
+.service-card-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.service-category-tag {
+  font-size: 0.72rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #94A3B8;
+}
+
+.service-featured-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.service-card-title {
+  font-size: 1.35rem;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.service-card-desc {
+  font-size: 0.84rem;
+  color: #94A3B8;
+  line-height: 1.5;
+  margin-bottom: 8px;
 }
 
 /* Bottom Action Row in Card */
@@ -90,11 +135,40 @@
   align-items: flex-end;
   justify-content: space-between;
   margin-top: auto;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.service-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-github-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-github-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  transform: translateY(-2px);
 }
 
 .action-circle-btn {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   color: #FFFFFF;
@@ -102,11 +176,23 @@
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.action-circle-btn.live-btn {
+  background: #10B981;
+  color: #042417;
 }
 
 .service-card:hover .action-circle-btn {
   background: var(--color-primary);
   color: #FFFFFF;
+  transform: rotate(45deg);
+}
+
+.service-card.service-card-featured:hover .action-circle-btn.live-btn {
+  background: #34D399;
+  color: #042417;
   transform: rotate(45deg);
 }
 

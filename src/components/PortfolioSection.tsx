@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa6';
 import { PORTFOLIO_TAGS, PORTFOLIO_PROJECTS } from '../data/portfolioData';
 import { PortfolioCardPreview } from './GraphicPlaceholders';
 import '../styles/components/PortfolioSection.css';
 
 export const PortfolioSection: React.FC = () => {
-  const [activeTag, setActiveTag] = useState('Landing Page');
+  const [activeTag, setActiveTag] = useState('All');
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
+  const filterCategories = ['All', ...PORTFOLIO_TAGS];
+
   const filteredProjects = PORTFOLIO_PROJECTS.filter(project =>
-    project.tags.includes(activeTag) || activeTag === 'Landing Page'
+    activeTag === 'All' ? true : project.tags.includes(activeTag)
   );
 
-  const currentProject = filteredProjects[selectedProjectIndex] || PORTFOLIO_PROJECTS[0];
+  const currentProject = filteredProjects[selectedProjectIndex] || filteredProjects[0] || PORTFOLIO_PROJECTS[0];
 
   return (
     <section id="portfolio" className="portfolio-section">
@@ -30,16 +33,17 @@ export const PortfolioSection: React.FC = () => {
             Lets have a look at my <span className="text-orange">Portfolio</span>
           </motion.h2>
 
-          <motion.a 
+          <a 
             href="#portfolio"
             className="btn btn-primary"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTag('All');
+              setSelectedProjectIndex(0);
+            }}
           >
-            See All
-          </motion.a>
+            See All ({PORTFOLIO_PROJECTS.length})
+          </a>
         </div>
 
         {/* Portfolio Cards Grid */}
@@ -47,14 +51,14 @@ export const PortfolioSection: React.FC = () => {
           {filteredProjects.map((project, idx) => (
             <motion.div
               key={project.id}
-              className="portfolio-card-frame"
+              className={`portfolio-card-frame ${selectedProjectIndex === idx ? 'selected-card' : ''}`}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
               onClick={() => setSelectedProjectIndex(idx)}
             >
-              <PortfolioCardPreview />
+              <PortfolioCardPreview project={project} />
             </motion.div>
           ))}
         </div>
@@ -78,7 +82,7 @@ export const PortfolioSection: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {PORTFOLIO_TAGS.map(tag => (
+          {filterCategories.map(tag => (
             <button
               key={tag}
               className={`filter-tag-btn ${activeTag === tag ? 'active' : ''}`}
@@ -102,15 +106,46 @@ export const PortfolioSection: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
           >
-            <h3 className="project-details-title">
-              {currentProject.title}
-              <span className="project-link-badge">
-                <ArrowUpRight size={18} />
-              </span>
-            </h3>
+            <div className="project-details-header">
+              <div>
+                <span className="project-category-pill">{currentProject.category}</span>
+                <h3 className="project-details-title">{currentProject.title}</h3>
+                <p className="project-subtitle-text">{currentProject.subtitle}</p>
+              </div>
+
+              <div className="project-header-actions">
+                {currentProject.demoLink && (
+                  <a
+                    href={currentProject.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-action-btn live"
+                  >
+                    Live Demo <ArrowUpRight size={16} />
+                  </a>
+                )}
+                {currentProject.githubLink && (
+                  <a
+                    href={currentProject.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-action-btn github"
+                  >
+                    <FaGithub size={16} /> GitHub
+                  </a>
+                )}
+              </div>
+            </div>
+
             <p className="project-details-desc">
               {currentProject.description}
             </p>
+
+            <div className="project-tag-list">
+              {currentProject.tags.map(tag => (
+                <span key={tag} className="project-item-tag">#{tag}</span>
+              ))}
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>

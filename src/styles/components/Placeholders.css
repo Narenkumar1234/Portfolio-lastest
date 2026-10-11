@@ -115,16 +115,271 @@
 /* Mock UI Cards in Services */
 .service-preview-frame {
   width: 100%;
-  height: 180px;
+  height: 200px;
   background: #F4F4F6;
   border-radius: 16px;
-  padding: 16px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
   overflow: hidden;
   position: relative;
+  transition: all var(--transition-fast);
+}
+
+/* Aura Expense Tracker Obsidian Emerald Frame */
+.service-preview-frame.aura-fintech-frame {
+  background: linear-gradient(145deg, #071018 0%, #0d1a24 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  height: auto;
+  min-height: 220px;
+  padding: 14px;
+  gap: 8px;
+}
+
+.aura-frame-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.preview-top-bar-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.aura-vault-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.aura-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: auraPulse 2s infinite ease-in-out;
+}
+
+@keyframes auraPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.aura-currency-tag {
+  font-size: 0.65rem;
+  color: #64748B;
+  font-family: monospace;
+}
+
+/* Aura Balance Card */
+.aura-balance-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.aura-balance-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.aura-balance-label {
+  font-size: 0.65rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.aura-balance-amount {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #F8FAFC;
+  letter-spacing: -0.5px;
+}
+
+.aura-growth-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 3px 6px;
+  border-radius: 6px;
+}
+
+/* 50/30/20 Budget Bar */
+.aura-budget-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.aura-budget-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: #94A3B8;
+}
+
+.aura-burn-text {
+  color: #34D399;
+  font-weight: 600;
+}
+
+.aura-progress-bar {
+  display: flex;
+  height: 6px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  gap: 2px;
+}
+
+.aura-prog-segment.needs {
+  background: #10B981;
+}
+
+.aura-prog-segment.wants {
+  background: #06B6D4;
+}
+
+.aura-prog-segment.savings {
+  background: #6366F1;
+}
+
+/* Recent Transactions */
+.aura-tx-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.aura-tx-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.aura-tx-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.aura-tx-icon.salary {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+}
+
+.aura-tx-icon.expense {
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+}
+
+.aura-tx-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.aura-tx-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aura-tx-sub {
+  font-size: 0.6rem;
+  color: #64748B;
+}
+
+.aura-tx-val {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.aura-tx-val.positive {
+  color: #34D399;
+}
+
+.aura-tx-val.negative {
+  color: #F87171;
+}
+
+/* Aura Action Buttons */
+.aura-action-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.aura-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.aura-pill-btn.live {
+  background: #10B981;
+  color: #042417;
+}
+
+.aura-pill-btn.live:hover {
+  background: #34D399;
+  transform: translateY(-1px);
+}
+
+.aura-pill-btn.github {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F8FAFC;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.aura-pill-btn.github:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
 }
 
 .preview-top-bar {
@@ -133,6 +388,13 @@
   gap: 6px;
   padding-bottom: 8px;
   border-bottom: 1.5px dashed #E2E2E6;
+}
+
+.preview-frame-caption {
+  font-size: 0.68rem;
+  color: #8E8E93;
+  margin-left: auto;
+  font-weight: 600;
 }
 
 .dot-red {
@@ -158,8 +420,8 @@
 
 .preview-grid-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   height: 100%;
 }
 
@@ -170,7 +432,80 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+}
+
+.preview-card-box.highlight-blue {
+  background: #F0F4FF;
+  border: 1px solid #D6E0FF;
+}
+
+.preview-comp-chip {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: rgba(19, 38, 92, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.preview-comp-chip.green {
+  color: #059669;
+  background: rgba(5, 150, 105, 0.1);
+}
+
+.preview-stat-number {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1E1E1E;
+  margin-top: 2px;
+}
+
+.preview-stat-label {
+  font-size: 0.62rem;
+  color: #71717A;
+}
+
+.ecom-box {
+  grid-column: span 2;
+  gap: 8px;
+}
+
+.ecom-product-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ecom-img-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #F4F4F6;
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: #1E1E1E;
+}
+
+.ecom-price-tag {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #13265C;
+}
+
+.ecom-checkout-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  color: #71717A;
+  padding-top: 4px;
+  border-top: 1px dashed #E2E2E6;
+}
+
+.ecom-speed-pill {
+  color: #059669;
+  font-weight: 700;
 }
 
 .skeleton-line {
@@ -202,13 +537,20 @@
   height: 240px;
   background: linear-gradient(135deg, #F8F9FB 0%, #E9ECEF 100%);
   border-radius: 20px;
-  padding: 20px;
+  padding: 18px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
-  gap: 16px;
+  gap: 14px;
+}
+
+/* Aura Expense Tracker Portfolio Box */
+.portfolio-preview-box.aura-portfolio-box {
+  background: linear-gradient(145deg, #050E17 0%, #081722 100%);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(16, 185, 129, 0.15);
 }
 
 .portfolio-mini-screen {
@@ -222,6 +564,134 @@
   gap: 8px;
 }
 
+.aura-card-emerald {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #FFFFFF;
+}
+
+.aura-card-telemetry {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #FFFFFF;
+}
+
+.screen-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.screen-brand-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #34D399;
+}
+
+.screen-live-tag {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.2);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.aura-mini-networth {
+  display: flex;
+  flex-direction: column;
+  margin: 4px 0;
+}
+
+.aura-mini-networth .lbl {
+  font-size: 0.6rem;
+  color: #94A3B8;
+  letter-spacing: 0.5px;
+}
+
+.aura-mini-networth .val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #F8FAFC;
+  letter-spacing: -0.5px;
+}
+
+.aura-mini-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chip-emerald {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.chip-cyan {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.aura-mini-card-chip {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  color: #94A3B8;
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+}
+
+.telemetry-bar-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.mini-stream-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.mini-stream-line.positive span:last-child {
+  color: #34D399;
+  font-weight: 700;
+}
+
+.mini-stream-line.negative span:last-child {
+  color: #F87171;
+  font-weight: 700;
+}
+
+.mini-stream-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.62rem;
+  color: #64748B;
+}
+
+.sync-pulse {
+  color: #10B981;
+  font-weight: 600;
+}
+
 .watermark-brand {
   position: absolute;
   bottom: 12px;
@@ -231,6 +701,11 @@
   font-size: 2rem;
   color: rgba(30, 30, 30, 0.18);
   letter-spacing: -0.5px;
+  pointer-events: none;
+}
+
+.watermark-brand.aura-watermark {
+  color: rgba(16, 185, 129, 0.12);
 }
 
 @media (max-width: 768px) {

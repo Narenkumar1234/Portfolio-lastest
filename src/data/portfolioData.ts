@@ -4,7 +4,10 @@ export interface ServiceItem {
   category: string;
   description: string;
   iconName: string;
-  previewType: 'ui-ux' | 'web-design' | 'landing-page';
+  previewType: 'expense-tracker' | 'ui-ux' | 'web-design' | 'landing-page';
+  demoUrl?: string;
+  githubUrl?: string;
+  badge?: string;
 }
 
 export interface ExperienceItem {
@@ -25,7 +28,10 @@ export interface PortfolioItem {
   tags: string[];
   description: string;
   link: string;
+  githubLink?: string;
+  demoLink?: string;
   accentColor: string;
+  previewType?: 'expense-tracker' | 'ecommerce' | 'enterprise' | 'telemetry';
 }
 
 export interface StatItem {
@@ -54,28 +60,35 @@ export const HERO_DATA = {
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: 'react-next',
-    title: 'React & Next.js Apps',
-    category: 'Frontend Engineering',
-    description: 'Building scalable, high-performance web applications using React, Next.js for server-side rendering (SSR), and modern state management.',
-    iconName: 'Layout',
-    previewType: 'ui-ux',
+    id: 'aura-expense-tracker-service',
+    title: 'FinTech & Expense Tracker',
+    category: 'Full-Stack Web App',
+    description: 'Engineering high-security personal finance apps, 50/30/20 budget allocations, multi-card billing cycle intelligence, and Gemini AI assistant with real-time Firebase sync.',
+    iconName: 'Wallet',
+    previewType: 'expense-tracker',
+    demoUrl: 'https://expense-tracker-zeta-five-17.vercel.app',
+    githubUrl: 'https://github.com/Narenkumar1234/Expense-Tracker',
+    badge: 'Featured Project',
   },
   {
     id: 'ui-design-system',
-    title: 'Responsive UI & MUI',
-    category: 'Design Systems',
-    description: 'Crafting pixel-perfect, accessible user interfaces with Material-UI (MUI), Tailwind CSS, and custom design tokens.',
-    iconName: 'Globe',
-    previewType: 'web-design',
+    title: 'Enterprise UI Systems',
+    category: 'Design Systems & MUI',
+    description: 'Crafting pixel-perfect, accessible user interfaces with Material-UI (MUI), Tailwind CSS, and custom design tokens for enterprise scale.',
+    iconName: 'Layout',
+    previewType: 'ui-ux',
+    githubUrl: 'https://github.com/Narenkumar1234/',
+    badge: 'Zoho Enterprise',
   },
   {
     id: 'fullstack-node',
-    title: 'Node & E-Commerce',
+    title: 'Next.js & E-Commerce',
     category: 'Full Stack Integration',
-    description: 'Developing end-to-end e-commerce solutions, frictionless checkout flows, Node.js REST services, and database architectures.',
-    iconName: 'Smartphone',
+    description: 'Developing end-to-end e-commerce solutions, frictionless checkout flows, server-side rendering (SSR), and Node.js backend architectures.',
+    iconName: 'Globe',
     previewType: 'landing-page',
+    githubUrl: 'https://github.com/Narenkumar1234/',
+    badge: 'Production SSR',
   },
 ];
 
@@ -129,13 +142,27 @@ export const WHY_HIRE_ME_DATA = {
 
 export const PORTFOLIO_TAGS = [
   'React & Next.js',
-  'E-Commerce',
+  'FinTech',
   'Dashboards',
-  'Angular',
+  'E-Commerce',
   'Node & DB',
+  'Angular',
 ];
 
 export const PORTFOLIO_PROJECTS: PortfolioItem[] = [
+  {
+    id: 'aura-expense-tracker',
+    title: 'Aura — Personal Finance & Expense Tracker',
+    subtitle: 'Full-Stack Wealth & Budget Engine',
+    category: 'React & Next.js',
+    tags: ['React & Next.js', 'FinTech', 'Dashboards', 'Node & DB'],
+    description: 'An obsidian-emerald personal wealth platform featuring 50/30/20 budgeting, multi-card billing cycle intelligence, telemetry ledger analytics, and Gemini AI financial assistant with real-time Firebase & localStorage sync.',
+    link: 'https://expense-tracker-zeta-five-17.vercel.app',
+    githubLink: 'https://github.com/Narenkumar1234/Expense-Tracker',
+    demoLink: 'https://expense-tracker-zeta-five-17.vercel.app',
+    accentColor: '#10B981',
+    previewType: 'expense-tracker',
+  },
   {
     id: 'narumugai-store',
     title: 'Narumugai E-Commerce Platform',
@@ -144,7 +171,9 @@ export const PORTFOLIO_PROJECTS: PortfolioItem[] = [
     tags: ['React & Next.js', 'E-Commerce'],
     description: 'Developed an end-to-end e-commerce platform utilizing Next.js for server-side rendering, React modular components, and a frictionless checkout system.',
     link: 'https://github.com/Narenkumar1234/',
+    githubLink: 'https://github.com/Narenkumar1234/',
     accentColor: '#13265C',
+    previewType: 'ecommerce',
   },
   {
     id: 'zoho-ui-revamp',
@@ -154,7 +183,9 @@ export const PORTFOLIO_PROJECTS: PortfolioItem[] = [
     tags: ['React & Next.js', 'Dashboards'],
     description: 'Crafted digital experiences by designing and revamping enterprise user interfaces with Material-UI (MUI), responsive design principles, and React state architecture.',
     link: 'https://github.com/Narenkumar1234/',
+    githubLink: 'https://github.com/Narenkumar1234/',
     accentColor: '#4F46E5',
+    previewType: 'enterprise',
   },
   {
     id: 'viasat-dashboard',
@@ -164,6 +195,8 @@ export const PORTFOLIO_PROJECTS: PortfolioItem[] = [
     tags: ['Dashboards', 'Node & DB'],
     description: 'Enhanced live container monitoring dashboards utilizing JavaScript, Handlebars, and Python for real-time system metrics tracking.',
     link: 'https://github.com/Narenkumar1234/',
-    accentColor: '#10B981',
+    githubLink: 'https://github.com/Narenkumar1234/',
+    accentColor: '#059669',
+    previewType: 'telemetry',
   },
 ];
