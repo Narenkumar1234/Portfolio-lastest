@@ -1,0 +1,228 @@
+/* AI Voice Hold-to-Talk Floating Icon & Transparent Popover Tooltip */
+
+/* Floating Container (stacked right above the Theme Switcher) */
+.ai-voice-floating-container {
+  position: fixed;
+  bottom: 96px;
+  right: 32px;
+  z-index: 2000;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 52px Circular Icon Button - matching Theme button */
+.ai-voice-icon-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.88);
+  color: #38BDF8;
+  border: 2px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35), 0 0 16px rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  position: relative;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  touch-action: none;
+}
+
+.ai-voice-icon-btn:hover {
+  transform: scale(1.08);
+  border-color: #38BDF8;
+  color: #FFFFFF;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(56, 189, 248, 0.45);
+}
+
+/* Button state while user is actively holding down */
+.ai-voice-icon-btn.holding {
+  transform: scale(1.12);
+  background: #059669;
+  color: #FFFFFF;
+  border-color: #34D399;
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.6), 0 0 45px rgba(5, 150, 105, 0.4);
+}
+
+/* Button state while AI is speaking back */
+.ai-voice-icon-btn.speaking {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #38BDF8;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.65), 0 0 45px rgba(2, 132, 199, 0.4);
+  animation: pulseSpeakingRing 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseSpeakingRing {
+  0%, 100% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); }
+  50% { box-shadow: 0 0 38px rgba(56, 189, 248, 0.9); }
+}
+
+.ai-voice-status-dot {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10B981;
+  border: 2px solid #0F172A;
+  box-shadow: 0 0 8px #10B981;
+  transition: all 0.2s ease;
+}
+
+.ai-voice-status-dot.recording {
+  background: #EF4444;
+  box-shadow: 0 0 10px #EF4444;
+  animation: pulseRecording 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes pulseRecording {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(1.3); opacity: 0.6; }
+}
+
+.ai-btn-icon-pulse {
+  animation: iconPulse 1s infinite alternate ease-in-out;
+}
+
+@keyframes iconPulse {
+  from { transform: scale(0.95); }
+  to { transform: scale(1.1); }
+}
+
+/* Transparent Hover / Press Tooltip Popover (Zero black background) */
+.ai-voice-popover-card {
+  position: absolute;
+  bottom: 64px;
+  right: 0;
+  width: 270px;
+  background: rgba(11, 18, 33, 0.58);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 0 28px rgba(56, 189, 248, 0.18);
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+  transform-origin: bottom right;
+}
+
+/* Popover Header */
+.ai-popover-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-popover-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-popover-status-badge.listening {
+  background: rgba(16, 185, 129, 0.16);
+  color: #34D399;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.ai-popover-status-badge.replying {
+  background: rgba(245, 158, 11, 0.16);
+  color: #FBBF24;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.ai-popover-status-badge.speaking {
+  background: rgba(56, 189, 248, 0.18);
+  color: #38BDF8;
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.pulse-mini-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.ai-popover-close-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #94A3B8;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ai-popover-close-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+/* Soundwave Reactive Bars in Popover */
+.ai-popover-waves {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 44px;
+  width: 100%;
+}
+
+.popover-wave-bar {
+  width: 4px;
+  min-height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  transition: height 0.05s ease, background 0.15s ease, box-shadow 0.15s ease;
+  will-change: height;
+}
+
+/* Popover Status Description */
+.ai-popover-status-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.text-emerald {
+  color: #34D399;
+}
+
+@media (max-width: 768px) {
+  .ai-voice-floating-container {
+    bottom: 86px;
+    right: 20px;
+  }
+
+  .ai-voice-popover-card {
+    right: -4px;
+    width: 250px;
+  }
+}

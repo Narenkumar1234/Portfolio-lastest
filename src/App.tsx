@@ -6,6 +6,7 @@ import { WhyHireMe } from './components/WhyHireMe';
 import { PortfolioSection } from './components/PortfolioSection';
 import { Footer } from './components/Footer';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
+import { HoldToTalkVoiceWidget } from './components/AIAssistantModal';
 import './styles/global.css';
 
 export function App() {
@@ -21,6 +22,9 @@ export function App() {
       </main>
       <Footer />
       <ThemeSwitcher />
+
+      {/* Floating Hold-to-Talk Voice AI Icon */}
+      <HoldToTalkVoiceWidget />
     </div>
   );
 }

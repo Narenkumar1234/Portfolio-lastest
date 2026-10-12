@@ -48,16 +48,18 @@ export const Navbar: React.FC = () => {
       >
         {NAV_LINKS.map((item, idx) => {
           return (
-            <>
-              {
-                idx == 3 &&
+            <React.Fragment key={item.id || idx}>
+              {idx === 3 && (
                 <a href="#home" className="brand-logo">
-                  <span className="brand-icon"
+                  <span
+                    className="brand-icon"
                     style={{
                       overflow: 'hidden',
-                      display: 'flex', alignItems: 'center',
-                      justifyContent: 'center'
-                    }}>
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
                     <img
                       src="/favicon-monogram.png"
                       alt="Logo"
@@ -66,16 +68,15 @@ export const Navbar: React.FC = () => {
                   </span>
                   @narenkumar.xyz
                 </a>
-              }
+              )}
               <a
-                key={idx}
                 href={item.href}
                 className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
               >
                 {item.label}
               </a>
-            </>
-          )
+            </React.Fragment>
+          );
         })}
       </motion.div>
 
